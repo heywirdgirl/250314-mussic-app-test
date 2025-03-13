@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "name": "Classic Baseball Hat",
+    "image": "/images/hat.jpg",
+    "price": 19.99,
+    "description": "A stylish and comfortable classic baseball hat, perfect for any occasion."
+  },
+  {
+    "id": 2,
+    "name": "Vintage Snapback Cap",
+    "image": "/images/hat.jpg",
+    "price": 24.99,
+    "description": "Retro-style snapback cap with adjustable fit and durable material."
+  },
+  {
+    "id": 3,
+    "name": "Outdoor Sun Hat",
+    "image": "/images/hat.jpg",
+    "price": 29.99,
+    "description": "Wide-brim sun hat to keep you cool and protected during outdoor adventures."
+  },
+  {
+    "id": 4,
+    "name": "Winter Beanie Hat",
+    "image": "/images/hat.jpg",
+    "price": 14.99,
+    "description": "Soft and warm knitted beanie hat, perfect for winter seasons."
+  },
+  {
+    "id": 5,
+    "name": "Cotton Bucket Hat",
+    "image": "/images/hat.jpg",
+    "price": 22.99,
+    "description": "Lightweight and breathable bucket hat, great for casual outings."
+  },
+  {
+    "id": 6,
+    "name": "Premium Fedora Hat",
+    "image": "/images/hat.jpg",
+    "price": 34.99,
+    "description": "Classic fedora hat made with premium materials for a sophisticated look."
+  },
+  {
+    "id": 7,
+    "name": "Camo Hunting Hat",
+    "image": "/images/hat.jpg",
+    "price": 18.99,
+    "description": "Durable camouflage hunting hat for outdoor and tactical use."
+  },
+  {
+    "id": 8,
+    "name": "Performance Sports Cap",
+    "image": "/images/hat.jpg",
+    "price": 21.99,
+    "description": "Breathable and sweat-wicking sports cap for athletic activities."
+  },
+  {
+    "id": 9,
+    "name": "Straw Beach Hat",
+    "image": "/images/hat.jpg",
+    "price": 27.99,
+    "description": "Stylish and lightweight straw hat, perfect for summer beach days."
+  },
+  {
+    "id": 10,
+    "name": "Adjustable Trucker Cap",
+    "image": "/images/hat.jpg",
+    "price": 16.99,
+    "description": "Classic mesh trucker cap with adjustable snap closure for a perfect fit."
+  },
+  {
+    "id": 11,
+    "name": "Stylish Cowboy Hat",
+    "image": "/images/hat.jpg",
+    "price": 39.99,
+    "description": "Authentic cowboy hat made with durable materials for a western look."
+  },
+  {
+    "id": 12,
+    "name": "Casual Dad Hat",
+    "image": "/images/hat.jpg",
+    "price": 15.99,
+    "description": "Simple and stylish dad hat for an everyday casual look."
+  },
+  {
+    "id": 13,
+    "name": "Waterproof Hiking Hat",
+    "image": "/images/hat.jpg",
+    "price": 26.99,
+    "description": "Lightweight, waterproof hiking hat designed for outdoor adventures."
+  },
+  {
+    "id": 14,
+    "name": "Classic Golf Cap",
+    "image": "/images/hat.jpg",
+    "price": 23.99,
+    "description": "Perfect golf cap with UV protection and sweat-absorbing material."
+  },
+  {
+    "id": 15,
+    "name": "Urban Hip-Hop Cap",
+    "image": "/images/hat.jpg",
+    "price": 19.99,
+    "description": "Trendy hip-hop style cap that complements streetwear outfits."
+  },
+  {
+    "id": 16,
+    "name": "Soft Fleece Beanie",
+    "image": "/images/hat.jpg",
+    "price": 12.99,
+    "description": "Warm fleece beanie for maximum comfort in cold weather."
+  },
+  {
+    "id": 17,
+    "name": "Lightweight Cycling Cap",
+    "image": "/images/hat.jpg",
+    "price": 17.99,
+    "description": "Designed for cyclists, lightweight and breathable for maximum comfort."
+  },
+  {
+    "id": 18,
+    "name": "Reversible Fisherman Hat",
+    "image": "/images/hat.jpg",
+    "price": 20.99,
+    "description": "Two-in-one reversible fisherman hat with dual-color design."
+  },
+  {
+    "id": 19,
+    "name": "Stylish Military Cap",
+    "image": "/images/hat.jpg",
+    "price": 22.99,
+    "description": "Military-style cap with sturdy build and classic design."
+  },
+  {
+    "id": 20,
+    "name": "Kids' Fun Cap",
+    "image": "/images/hat.jpg",
+    "price": 14.99,
+    "description": "Colorful and comfortable cap designed for kids of all ages."
+  }
+]
