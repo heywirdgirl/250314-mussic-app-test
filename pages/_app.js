@@ -4,11 +4,11 @@ import Footer from '../components/Footer'; // Adjust the path as necessary
 
 function MyApp({ Component, pageProps }) {
   return (
-    <>
+    <div className="relative">
       <Header />
       <Component {...pageProps} />
       <Footer />
-    </>
+    </div>
   );
 }
 
