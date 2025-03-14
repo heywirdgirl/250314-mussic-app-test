@@ -2,8 +2,7 @@ import fs from "fs";
 import path from "path";
 import { useRouter } from "next/router";
 import Head from "next/head";
-import Image from "next/image";
-import Header from "../../components/Header";
+import { Container, Grid, Typography, Button, CardMedia, CircularProgress, Box } from "@mui/material";
 
 export async function getStaticPaths() {
   const filePath = path.join(process.cwd(), "public/products.json");
@@ -32,7 +31,13 @@ export async function getStaticProps({ params }) {
 export default function ProductPage({ product }) {
   const router = useRouter();
 
-  if (router.isFallback) return <p className="text-center mt-20 text-xl">Loading...</p>;
+  if (router.isFallback) {
+    return (
+      <Box display="flex" justifyContent="center" alignItems="center" minHeight="60vh">
+        <CircularProgress />
+      </Box>
+    );
+  }
 
   return (
     <>
@@ -40,21 +45,36 @@ export default function ProductPage({ product }) {
         <title>{product.name} - Simple Shop</title>
         <meta name="description" content={product.description} />
       </Head>
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex flex-col md:flex-row gap-6">
-          <div className="relative w-full md:w-1/2 h-72 md:h-96">
-            <Image src={product.image} alt={product.name} layout="fill" objectFit="cover" className="rounded-lg" />
-          </div>
-          <div className="md:w-1/2">
-            <h1 className="text-3xl font-bold">{product.name}</h1>
-            <p className="text-lg text-gray-800 font-semibold mt-2">${product.price.toFixed(2)}</p>
-            <p className="text-gray-600 text-md mt-4">{product.description}</p>
-            <button className="mt-6 px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition">
+
+      <Container sx={{ py: 6 }}>
+        <Grid container spacing={4} alignItems="center">
+          {/* Product Image */}
+          <Grid item xs={12} md={6}>
+            <CardMedia
+              component="img"
+              image={product.image}
+              alt={product.name}
+              sx={{ width: "100%", height: 400, objectFit: "cover", borderRadius: 2 }}
+            />
+          </Grid>
+
+          {/* Product Details */}
+          <Grid item xs={12} md={6}>
+            <Typography variant="h4" fontWeight="bold">
+              {product.name}
+            </Typography>
+            <Typography variant="h5" color="primary" sx={{ mt: 1 }}>
+              ${product.price.toFixed(2)}
+            </Typography>
+            <Typography variant="body1" color="text.secondary" sx={{ mt: 2 }}>
+              {product.description}
+            </Typography>
+            <Button variant="contained" color="success" sx={{ mt: 4 }}>
               Buy Now
-            </button>
-          </div>
-        </div>
-      </div>
+            </Button>
+          </Grid>
+        </Grid>
+      </Container>
     </>
   );
 }

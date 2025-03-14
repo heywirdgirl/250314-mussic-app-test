@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
-import { Transition } from "@headlessui/react";
 import { useState, useEffect } from "react";
+import { Container, Grid, Typography, Box, Fade } from "@mui/material";
 import ProductCard from "../components/ProductCard";
 
 export async function getStaticProps() {
@@ -22,42 +22,53 @@ export default function Home({ products }) {
   return (
     <>
       {/* HERO SECTION */}
-      <div
-        className="relative min-h-[60vh] bg-cover bg-center bg-no-repeat lg:bg-fixed flex items-center justify-center"
-        style={{ backgroundImage: "url('/images/hat.jpg')" }}
+      <Box
+        sx={{
+          position: "relative",
+          minHeight: "60vh",
+          background: "url('/images/hat.jpg') center/cover no-repeat",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
       >
         {/* DARK OVERLAY */}
-        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+        <Box
+          sx={{
+            position: "absolute",
+            inset: 0,
+            backgroundColor: "rgba(0, 0, 0, 0.6)",
+          }}
+        />
 
         {/* ANIMATED TEXT */}
-        <Transition
-          show={isVisible}
-          enter="transition-opacity duration-700"
-          enterFrom="opacity-0"
-          enterTo="opacity-100"
-        >
-          <div className="relative z-10 text-center text-white px-6">
-            <h1 className="text-4xl md:text-5xl font-bold">Welcome to Simple Shop</h1>
-            <p className="mt-4 text-lg md:text-xl">
+        <Fade in={isVisible} timeout={700}>
+          <Box sx={{ position: "relative", textAlign: "center", color: "white", px: 3 }}>
+            <Typography variant="h3" fontWeight="bold">
+              Welcome to Simple Shop
+            </Typography>
+            <Typography variant="h5" sx={{ mt: 2 }}>
               Discover the latest trends in fashion & accessories.
-            </p>
-          </div>
-        </Transition>
-      </div>
+            </Typography>
+          </Box>
+        </Fade>
+      </Box>
 
       {/* PRODUCT SECTION */}
-      <div className="container mx-auto px-6 py-12">
-        <h2 className="text-3xl font-bold text-center mb-8 text-gray-900 dark:text-white">
+      <Container sx={{ py: 8 }}>
+        <Typography variant="h4" fontWeight="bold" align="center" gutterBottom>
           Our Collection
-        </h2>
+        </Typography>
 
         {/* PRODUCT GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <Grid container spacing={3}>
           {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
+              <ProductCard product={product} />
+            </Grid>
           ))}
-        </div>
-      </div>
+        </Grid>
+      </Container>
     </>
   );
 }
