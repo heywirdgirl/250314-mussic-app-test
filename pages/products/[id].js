@@ -1,61 +1,41 @@
-import fs from "fs";
-import path from "path";
 import { useRouter } from "next/router";
-import Head from "next/head";
-import Image from "next/image";
-import Header from "../../components/Header";
+import products from "../../data/products.json";
+import { Dialog, Transition } from "@headlessui/react";
+import { Fragment, useState } from "react";
 
-export async function getStaticPaths() {
-  const filePath = path.join(process.cwd(), "public/products.json");
-  const jsonData = fs.readFileSync(filePath, "utf-8");
-  const products = JSON.parse(jsonData);
-
-  const paths = products.map((product) => ({
-    params: { id: product.id.toString() }
-  }));
-
-  return { paths, fallback: true };
-}
-
-export async function getStaticProps({ params }) {
-  const filePath = path.join(process.cwd(), "public/products.json");
-  const jsonData = fs.readFileSync(filePath, "utf-8");
-  const products = JSON.parse(jsonData);
-
-  const product = products.find((p) => p.id.toString() === params.id);
-
-  if (!product) return { notFound: true };
-
-  return { props: { product } };
-}
-
-export default function ProductPage({ product }) {
+export default function ProductDetail() {
   const router = useRouter();
+  const { id } = router.query;
+  const product = products.find((p) => p.id === Number(id));
 
-  if (router.isFallback) return <p className="text-center mt-20 text-xl">Loading...</p>;
+  const [isOpen, setIsOpen] = useState(true);
+
+  if (!product) return <p className="text-center py-10">Product not found</p>;
 
   return (
-    <>
-      <Head>
-        <title>{product.name} - Simple Shop</title>
-        <meta name="description" content={product.description} />
-      </Head>
-      <Header />
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex flex-col md:flex-row gap-6">
-          <div className="relative w-full md:w-1/2 h-72 md:h-96">
-            <Image src={product.image} alt={product.name} layout="fill" objectFit="cover" className="rounded-lg" />
-          </div>
-          <div className="md:w-1/2">
-            <h1 className="text-3xl font-bold">{product.name}</h1>
-            <p className="text-lg text-gray-800 font-semibold mt-2">${product.price.toFixed(2)}</p>
-            <p className="text-gray-600 text-md mt-4">{product.description}</p>
-            <button className="mt-6 px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition">
-              Buy Now
-            </button>
-          </div>
-        </div>
-      </div>
-    </>
+    <div className="bg-gray-100 min-h-screen flex items-center justify-center">
+      <Transition show={isOpen} as={Fragment}>
+        <Dialog onClose={() => setIsOpen(false)} className="fixed inset-0 flex items-center justify-center">
+          <Transition.Child
+            enter="transition-opacity duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="transition-opacity duration-300"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="bg-white p-6 rounded-lg shadow-lg max-w-md mx-auto">
+              <img src={product.image} alt={product.name} className="w-full h-56 object-cover rounded-md"/>
+              <h1 className="text-2xl font-bold mt-4">{product.name}</h1>
+              <p className="text-gray-700 mt-2">{product.description}</p>
+              <span className="block text-green-600 font-bold text-xl mt-3">${product.price}</span>
+              <button onClick={() => router.push("/")} className="mt-4 bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-700">
+                Back to Home
+              </button>
+            </div>
+          </Transition.Child>
+        </Dialog>
+      </Transition>
+    </div>
   );
 }

@@ -1,15 +1,25 @@
 import Link from "next/link";
+import { Transition } from "@headlessui/react";
 
 export default function ProductCard({ product }) {
   return (
-    <div className="bg-white border border-gray-200 rounded-lg shadow-md p-4 hover:shadow-lg transition">
-      <img src={product.image} alt={product.name} className="w-full h-40 object-cover rounded-md" />
-      <h2 className="text-lg font-semibold mt-3">{product.name}</h2>
-      <p className="text-gray-600 text-sm mt-1">{product.description.substring(0, 80)}...</p>
-      <p className="text-gray-800 font-semibold mt-2">${product.price.toFixed(2)}</p>
-      <Link href={`/products/${product.id}`} className="block mt-3 bg-blue-500 text-white py-2 text-center rounded-md hover:bg-blue-600 transition">
-        View Details
-      </Link>
-    </div>
+    <Transition
+      appear
+      show={true}
+      enter="transform transition duration-500 ease-in-out"
+      enterFrom="opacity-0 translate-y-5"
+      enterTo="opacity-100 translate-y-0"
+    >
+      <div className="bg-white shadow-lg rounded-lg overflow-hidden hover:scale-105 transition-transform">
+        <Link href={`/product/${product.id}`}>
+          <img src={product.image} alt={product.name} className="w-full h-48 object-cover" />
+          <div className="p-4">
+            <h2 className="text-lg font-semibold text-gray-900">{product.name}</h2>
+            <p className="text-gray-600 mt-1">{product.description}</p>
+            <span className="block mt-2 text-lg font-bold text-green-600">${product.price}</span>
+          </div>
+        </Link>
+      </div>
+    </Transition>
   );
 }
