@@ -11,7 +11,7 @@
     "next": "12.0.4",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "@headlessui/react": "^2.x"
+    "@headlessui/react": "^1.7.x"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.0",
