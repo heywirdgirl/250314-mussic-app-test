@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { Menu } from "@headlessui/react";
 import Link from "next/link";
-import { FaFacebook } from "react-icons/fa"; // Facebook Icon
-import { ShoppingBagIcon } from "@heroicons/react/24/outline"; // Shopee Icon
+import { FaFacebook, FaShoppingBag } from "react-icons/fa"; // React Icons
 
 export default function Header() {
   return (
@@ -17,7 +16,7 @@ export default function Header() {
             <span>Facebook</span>
           </Link>
           <Link href="https://shopee.com" className="flex items-center space-x-1 hover:text-orange-400">
-            <ShoppingBagIcon className="w-5 h-5" />
+            <FaShoppingBag className="w-5 h-5" />
             <span>Shopee</span>
           </Link>
           <span className="text-sm">📍 123 Shop St.</span>
@@ -45,7 +44,7 @@ export default function Header() {
                   <Menu.Item>
                     {({ active }) => (
                       <Link href="https://shopee.com" className={`flex items-center space-x-2 px-4 py-2 ${active ? "bg-gray-700" : ""}`}>
-                        <ShoppingBagIcon className="w-5 h-5" />
+                        <FaShoppingBag className="w-5 h-5" />
                         <span>Shopee</span>
                       </Link>
                     )}
