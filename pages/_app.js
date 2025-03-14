@@ -1,4 +1,3 @@
-
 import Header from '../components/Header'; // Adjust the path as necessary
 import Footer from '../components/Footer'; // Adjust the path as necessary
 
