@@ -1,36 +1,54 @@
-import Link from "next/link";
-import { useState } from "react";
+import fs from "fs";
+import path from "path";
+import Header from "../components/Header";
+import ProductCard from "../components/ProductCard";
 import { Transition } from "@headlessui/react";
-import products from "../data/products.json";
 
-export default function Home() {
-  const [isShowing, setIsShowing] = useState(true);
+export async function getStaticProps() {
+  const filePath = path.join(process.cwd(), "public/products.json");
+  const jsonData = fs.readFileSync(filePath, "utf-8");
+  const products = JSON.parse(jsonData);
 
+  return { props: { products } };
+}
+
+export default function Home({ products }) {
   return (
-    <div className="bg-gray-100 min-h-screen">
-      <header className="bg-gray-900 text-white text-center py-5">
-        <h1 className="text-3xl font-bold">Welcome to Our Shop</h1>
-      </header>
+    <>
+      <Header />
+      <div
+        className="min-h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center"
+        style={{ backgroundImage: "url('/images/hat.jpg')" }}
+      >
+        <div className="container mx-auto px-4 py-8 bg-white bg-opacity-90 shadow-lg rounded-lg">
+          <h1 className="text-4xl font-bold text-center text-gray-900 my-6">
+            ✨ Simple Shop ✨
+          </h1>
 
-      <main className="container mx-auto py-10 px-4">
-        <Transition
-          show={isShowing}
-          enter="transition-opacity duration-700"
-          enterFrom="opacity-0"
-          enterTo="opacity-100"
-        >
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {products.map((product) => (
-              <Link key={product.id} href={`/product/${product.id}`} className="bg-white shadow-md rounded-lg p-4 hover:scale-105 transition-transform">
-                <img src={product.image} alt={product.name} className="w-full h-48 object-cover rounded-md"/>
-                <h2 className="mt-3 text-lg font-semibold">{product.name}</h2>
-                <p className="text-gray-700">{product.description}</p>
-                <span className="block mt-2 font-bold text-green-600">${product.price}</span>
-              </Link>
-            ))}
-          </div>
-        </Transition>
-      </main>
-    </div>
+          {/* GRID WITH ANIMATION */}
+          <Transition
+            show={true}
+            appear
+            enter="transition-opacity duration-500"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {products.map((product, index) => (
+                <Transition.Child
+                  key={product.id}
+                  enter="transform transition duration-500 ease-in-out"
+                  enterFrom="opacity-0 scale-95"
+                  enterTo="opacity-100 scale-100"
+                  style={{ transitionDelay: `${index * 100}ms` }}
+                >
+                  <ProductCard product={product} />
+                </Transition.Child>
+              ))}
+            </div>
+          </Transition>
+        </div>
+      </div>
+    </>
   );
 }
