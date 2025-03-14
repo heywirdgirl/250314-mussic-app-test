@@ -23,7 +23,7 @@ export default function Home({ products }) {
     <>
       {/* HERO SECTION */}
       <div
-        className="relative min-h-[60vh] bg-cover bg-center bg-no-repeat lg:bg-fixed flex items-center justify-center"
+        className="relative min-h-[60vh] bg-cover bg-center bg-no-repeat lg:bg-fixed flex items-center justify-center -z-100"
         style={{ backgroundImage: "url('/images/hat.jpg')" }}
       >
         {/* DARK OVERLAY */}
