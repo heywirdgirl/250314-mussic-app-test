@@ -11,15 +11,15 @@
     "next": "12.0.4",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "@headlessui/react": "^1.7.x"
+    "@headlessui/react": "^1.7.x",
+    "daisyui": "^2.6.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.0",
     "eslint": "7.32.0",
     "eslint-config-next": "12.0.4",
     "postcss": "^8.4.4",
-    "tailwindcss": "latest",
-    "daisyui": "latest"
+    "tailwindcss": "3.x"
   },
   "engines": {
     "node": "22.x"
