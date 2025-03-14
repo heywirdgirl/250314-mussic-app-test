@@ -13,11 +13,11 @@ export async function getStaticProps() {
 
 export default function Home({ products }) {
   return (
-    <>
+    <div className="relative">
       <Header />
       
       <div
-  className="relative min-h-screen bg-cover bg-center bg-no-repeat lg:bg-fixed"
+  className="relative min-h-screen bg-cover bg-center bg-no-repeat lg:bg-fixed -z-10"
   style={{ backgroundImage: "url('/images/hat.jpg')" }}
 >
   {/* DARK OVERLAY */}
@@ -36,6 +36,6 @@ export default function Home({ products }) {
         </div>
       </div>
       
-    </>
+    </div>
   );
 }
