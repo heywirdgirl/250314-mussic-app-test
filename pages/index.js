@@ -14,8 +14,6 @@ export async function getStaticProps() {
 export default function Home({ products }) {
   return (
     <>
-      <Header />
-      
       <div
   className="relative min-h-screen bg-cover bg-center bg-no-repeat lg:bg-fixed"
   style={{ backgroundImage: "url('/images/hat.jpg')" }}

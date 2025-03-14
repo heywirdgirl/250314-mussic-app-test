@@ -40,7 +40,6 @@ export default function ProductPage({ product }) {
         <title>{product.name} - Simple Shop</title>
         <meta name="description" content={product.description} />
       </Head>
-      <Header />
       <div className="container mx-auto px-4 py-8">
         <div className="flex flex-col md:flex-row gap-6">
           <div className="relative w-full md:w-1/2 h-72 md:h-96">
