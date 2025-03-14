@@ -23,9 +23,12 @@ export default function Home({ products }) {
     <>
       {/* HERO SECTION */}
       <div
-        className="relative min-h-[60vh] bg-cover bg-center bg-no-repeat lg:bg-fixed flex items-center justify-center -z-100"
+        className="relative min-h-[60vh] bg-cover bg-center bg-no-repeat lg:bg-fixed flex items-center justify-center"
         style={{ backgroundImage: "url('/images/hat.jpg')" }}
       >
+        {/* DARK OVERLAY */}
+        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+
         {/* ANIMATED TEXT */}
         <Transition
           show={isVisible}
