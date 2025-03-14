@@ -1,17 +1,25 @@
 import { useState } from "react";
 import { Menu } from "@headlessui/react";
 import Link from "next/link";
+import { FaFacebook } from "react-icons/fa"; // Facebook Icon
+import { ShoppingBagIcon } from "@heroicons/react/24/outline"; // Shopee Icon
 
 export default function Header() {
   return (
-    <header className="bg-gray-900 text-white py-4 shadow-md fixed top-0 right-0 left-0 z-100">
+    <header className="bg-gray-900 text-white py-4 shadow-md">
       <div className="container mx-auto flex justify-between items-center px-4">
-        <h1 className="text-xl font-bold">DD OLED</h1>
+        <h1 className="text-xl font-bold">My Shop</h1>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-6">
-          <Link href="https://facebook.com" className="hover:text-blue-400">Facebook</Link>
-          <Link href="https://shopee.com" className="hover:text-orange-400">Shopee</Link>
+        <nav className="hidden md:flex space-x-6 items-center">
+          <Link href="https://facebook.com" className="flex items-center space-x-1 hover:text-blue-400">
+            <FaFacebook className="w-5 h-5" />
+            <span>Facebook</span>
+          </Link>
+          <Link href="https://shopee.com" className="flex items-center space-x-1 hover:text-orange-400">
+            <ShoppingBagIcon className="w-5 h-5" />
+            <span>Shopee</span>
+          </Link>
           <span className="text-sm">📍 123 Shop St.</span>
           <span className="text-sm">📞 012-345-6789</span>
         </nav>
@@ -28,15 +36,17 @@ export default function Header() {
                 <Menu.Items className="absolute right-0 mt-2 w-48 bg-gray-800 text-white rounded-md shadow-lg p-2">
                   <Menu.Item>
                     {({ active }) => (
-                      <Link href="https://facebook.com" className={`block px-4 py-2 ${active ? "bg-gray-700" : ""}`}>
-                        Facebook
+                      <Link href="https://facebook.com" className={`flex items-center space-x-2 px-4 py-2 ${active ? "bg-gray-700" : ""}`}>
+                        <FaFacebook className="w-5 h-5" />
+                        <span>Facebook</span>
                       </Link>
                     )}
                   </Menu.Item>
                   <Menu.Item>
                     {({ active }) => (
-                      <Link href="https://shopee.com" className={`block px-4 py-2 ${active ? "bg-gray-700" : ""}`}>
-                        Shopee
+                      <Link href="https://shopee.com" className={`flex items-center space-x-2 px-4 py-2 ${active ? "bg-gray-700" : ""}`}>
+                        <ShoppingBagIcon className="w-5 h-5" />
+                        <span>Shopee</span>
                       </Link>
                     )}
                   </Menu.Item>
