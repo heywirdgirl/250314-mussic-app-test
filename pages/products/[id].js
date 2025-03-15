@@ -1,31 +1,49 @@
-import fs from "fs";
-import path from "path";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { Transition } from "@headlessui/react";
 
+// Fetch all product IDs from Firebase for SSG
 export async function getStaticPaths() {
-  const filePath = path.join(process.cwd(), "public/products.json");
-  const jsonData = fs.readFileSync(filePath, "utf-8");
-  const products = JSON.parse(jsonData);
+  try {
+    const response = await fetch(
+      "https://dd-oled-default-rtdb.asia-southeast1.firebasedatabase.app/.json"
+    );
+    if (!response.ok) {
+      throw new Error("Failed to fetch data");
+    }
+    const data = await response.json();
 
-  const paths = products.map((product) => ({
-    params: { id: product.id.toString() }
-  }));
+    const products = data ? Object.values(data) : [];
+    const paths = products.map((product) => ({
+      params: { id: product.id.toString() },
+    }));
 
-  return { paths, fallback: true };
+    return { paths, fallback: true }; // Enable fallback for new products
+  } catch (error) {
+    return { paths: [], fallback: true }; // In case of an error, enable fallback
+  }
 }
 
+// Fetch individual product details from Firebase
 export async function getStaticProps({ params }) {
-  const filePath = path.join(process.cwd(), "public/products.json");
-  const jsonData = fs.readFileSync(filePath, "utf-8");
-  const products = JSON.parse(jsonData);
+  try {
+    const response = await fetch(
+      `https://dd-oled-default-rtdb.asia-southeast1.firebasedatabase.app/${params.id}.json`
+    );
+    if (!response.ok) {
+      throw new Error("Failed to fetch product data");
+    }
+    const product = await response.json();
 
-  const product = products.find((p) => p.id.toString() === params.id);
+    if (!product) return { notFound: true };
 
-  if (!product) return { notFound: true };
-
-  return { props: { product } };
+    return {
+      props: { product },
+      revalidate: 60, // ISR: Re-fetch product data every 60 seconds
+    };
+  } catch (error) {
+    return { notFound: true };
+  }
 }
 
 export default function ProductPage({ product }) {
@@ -67,7 +85,9 @@ export default function ProductPage({ product }) {
           {/* Product Details */}
           <div>
             <h1 className="text-3xl font-bold">{product.name}</h1>
-            <p className="text-xl text-blue-600 font-semibold mt-2">${product.price.toFixed(2)}</p>
+            <p className="text-xl text-blue-600 font-semibold mt-2">
+              ${product.price.toFixed(2)}
+            </p>
             <p className="text-gray-600 mt-4">{product.description}</p>
             
             <button className="mt-6 w-full md:w-auto bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition">
