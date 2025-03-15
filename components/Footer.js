@@ -13,14 +13,14 @@ const Footer = () => {
 
         {/* Footer Links */}
         <nav className="flex gap-6">
-          <Link href="#" className="text-gray-400 hover:text-white transition">
-            Link 1
+          <Link href="#">
+            <span className="text-gray-400 hover:text-white transition">Link 1</span>
           </Link>
-          <Link href="#" className="text-gray-400 hover:text-white transition">
-            Link 2
+          <Link href="#">
+            <span className="text-gray-400 hover:text-white transition">Link 2</span>
           </Link>
-          <Link href="#" className="text-gray-400 hover:text-white transition">
-            Link 3
+          <Link href="#">
+            <span className="text-gray-400 hover:text-white transition">Link 3</span>
           </Link>
         </nav>
       </div>
