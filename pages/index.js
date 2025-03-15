@@ -2,6 +2,7 @@ import ProductCard from "../components/ProductCard";
 import { Transition } from "@headlessui/react";
 import { useState, useEffect } from "react";
 
+
 export async function getStaticProps() {
   try {
     const response = await fetch(
@@ -16,8 +17,7 @@ export async function getStaticProps() {
     const products = data ? Object.values(data) : [];
 
     return {
-      props: { products },
-      revalidate: 60, // Re-generate page every 60 seconds (ISR)
+      props: { products }, // Static generation at build time
     };
   } catch (error) {
     return {
@@ -25,6 +25,7 @@ export async function getStaticProps() {
     };
   }
 }
+
 
 export default function Home({ products }) {
   const [isVisible, setIsVisible] = useState(false);
@@ -34,7 +35,7 @@ export default function Home({ products }) {
   }, []);
 
   return (
-    <>
+    <div>
       {/* HERO SECTION */}
       <div
         className="relative min-h-[60vh] bg-cover bg-center flex items-center justify-center"
@@ -74,6 +75,6 @@ export default function Home({ products }) {
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 }
