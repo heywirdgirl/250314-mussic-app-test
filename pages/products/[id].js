@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import Head from "next/head";
-import { Transition } from "@headlessui/react";
 
 // Fetch all product IDs from Firebase for SSG
 export async function getStaticPaths() {
@@ -39,7 +38,6 @@ export async function getStaticProps({ params }) {
 
     return {
       props: { product },
-      revalidate: 60, // ISR: Re-fetch product data every 60 seconds
     };
   } catch (error) {
     return { notFound: true };
@@ -67,20 +65,12 @@ export default function ProductPage({ product }) {
       <div className="container mx-auto py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           
-          {/* Product Image */}
-          <Transition
-            appear
-            show={true}
-            enter="transition-opacity duration-700"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-          >
-            <img
-              src={product.image}
-              alt={product.name}
-              className="w-full h-[400px] object-cover rounded-lg shadow-md"
-            />
-          </Transition>
+          {/* Product Image with Tailwind Animation */}
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-full h-[400px] object-cover rounded-lg shadow-md opacity-0 scale-95 animate-fade-in"
+          />
 
           {/* Product Details */}
           <div>
