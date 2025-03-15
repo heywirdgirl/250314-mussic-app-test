@@ -74,8 +74,8 @@ export default function ProductCard({ product }) {
                     Close
                   </button>
                   <Link href={`/products/${product.id}`} passHref>
-                    <button className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition"><a>
-                      Buy Now</a>
+                    <button className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">
+                      Buy Now
                     </button>
                   </Link>
                 </div>
