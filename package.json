@@ -7,20 +7,19 @@
     "start": "next start",
     "lint": "next lint"
   },
-  
   "dependencies": {
-    "next": "^13",
-    "react": "^18",
-    "react-dom": "^18",
-    "@headlessui/react": "^2",
-    "heroicons":"^2"
+    "next": "12.0.4",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "@headlessui/react":"^2.1",
+    "heroicons":"2.1"
   },
   "devDependencies": {
-    "eslint": "^8",
-    "eslint-config-next": "^13",
-    "autoprefixer": "^10",
-    "postcss": "^8",
-    "tailwindcss": "^3"
+    "autoprefixer": "^10.4.0",
+    "eslint": "7.32.0",
+    "eslint-config-next": "12.0.4",
+    "postcss": "^8.4.4",
+    "tailwindcss": "^2.2.19"
   },
   "engines": {
     "node": "22.x"
