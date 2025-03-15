@@ -12,8 +12,8 @@
     "next": "^13",
     "react": "^18",
     "react-dom": "^18",
-    "@headlessui/react": "^2.1",
-    "heroicons":"^2.1"
+    "@headlessui/react": "^2",
+    "heroicons":"^2"
   },
   "devDependencies": {
     "eslint": "^8",
