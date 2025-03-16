@@ -8,18 +8,19 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "^12.0.4",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "@headlessui/react":"^1",
-    "@heroicons/react":"^2"
+    "@emotion/cache": "latest",
+    "@emotion/react": "latest",
+    "@emotion/styled": "latest",
+    "@mui/icons-material": "next",
+    "@mui/material": "next",
+    "next": "^15",
+    "react": "^19",
+    "react-dom": "^19"
+
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.0",
-    "eslint": "^7.32.0",
-    "eslint-config-next": "^12.0.4",
-    "postcss": "^8.4.4",
-    "tailwindcss": "^2.2.19"
+    "eslint": "^9",
+    "eslint-config-next": "^15"
   },
   "engines": {
     "node": "22.x"

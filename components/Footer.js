@@ -1,30 +1,38 @@
-import Link from "next/link";
+import { Container, Box, Typography, Stack, Link } from "@mui/material";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-6">
-      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center px-4">
-        
-        {/* Footer Title & Description */}
-        <div className="text-center md:text-left mb-4 md:mb-0">
-          <h2 className="text-lg font-semibold">Footer Title</h2>
-          <p className="text-gray-400 text-sm">Some description about the footer.</p>
-        </div>
+    <Box component="footer" sx={{ bgcolor: "grey.900", color: "white", py: 3 }}>
+      <Container maxWidth="lg">
+        <Stack
+          direction={{ xs: "column", md: "row" }}
+          justifyContent="space-between"
+          alignItems="center"
+          spacing={2}
+        >
+          {/* Footer Title & Description */}
+          <Box textAlign={{ xs: "center", md: "left" }}>
+            <Typography variant="h6">Footer Title</Typography>
+            <Typography variant="body2" color="grey.400">
+              Some description about the footer.
+            </Typography>
+          </Box>
 
-        {/* Footer Links */}
-        <nav className="flex gap-6">
-          <Link href="#">
-            <span className="text-gray-400 hover:text-white transition">Link 1</span>
-          </Link>
-          <Link href="#">
-            <span className="text-gray-400 hover:text-white transition">Link 2</span>
-          </Link>
-          <Link href="#">
-            <span className="text-gray-400 hover:text-white transition">Link 3</span>
-          </Link>
-        </nav>
-      </div>
-    </footer>
+          {/* Footer Links */}
+          <Stack direction="row" spacing={3}>
+            <Link href="#" color="grey.400" underline="hover">
+              Link 1
+            </Link>
+            <Link href="#" color="grey.400" underline="hover">
+              Link 2
+            </Link>
+            <Link href="#" color="grey.400" underline="hover">
+              Link 3
+            </Link>
+          </Stack>
+        </Stack>
+      </Container>
+    </Box>
   );
 };
 

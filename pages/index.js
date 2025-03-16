@@ -1,14 +1,18 @@
-import ProductCard from "../components/ProductCard";
 import { useState, useEffect } from "react";
+import { Container, Grid, Typography, Box, Fade } from "@mui/material";
+import ProductCard from "../components/ProductCard";
 
 export async function getStaticProps() {
   try {
+    // Fetch product data from Firebase Realtime Database
     const response = await fetch(
       "https://dd-oled-default-rtdb.asia-southeast1.firebasedatabase.app/.json"
     );
+
     if (!response.ok) {
       throw new Error("Failed to fetch data");
     }
+
     const data = await response.json();
 
     // Convert Firebase object data into an array
@@ -16,11 +20,11 @@ export async function getStaticProps() {
 
     return {
       props: { products },
+      // ISR: Re-fetch product data every 60 seconds
     };
   } catch (error) {
-    return {
-      props: { products: [] },
-    };
+    console.error("Error fetching products:", error);
+    return { props: { products: [] } }; // Return empty array on failure
   }
 }
 
@@ -32,48 +36,61 @@ export default function Home({ products }) {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <>
       {/* HERO SECTION */}
-      <div
-        className="relative min-h-[60vh] bg-cover bg-center flex items-center justify-center"
-        style={{ backgroundImage: "url('/images/hat.jpg')" }}
+      <Box
+        sx={{
+          position: "relative",
+          minHeight: "60vh",
+          background: "url('/images/hat.jpg') center/cover no-repeat",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
       >
         {/* DARK OVERLAY */}
-        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+        <Box
+          sx={{
+            position: "absolute",
+            inset: 0,
+            backgroundColor: "rgba(0, 0, 0, 0.6)",
+          }}
+        />
 
-        {/* TEXT WITH TAILWIND ANIMATION */}
-        <div
-          className={`relative text-center text-white px-4 transition-opacity duration-700 ${
-            isVisible ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          <h1 className="text-5xl font-extrabold">Welcome to Simple Shop</h1>
-          <p className="text-lg mt-3">
-            Discover the latest trends in fashion & accessories.
-          </p>
-          <button className="mt-5 bg-white text-black px-6 py-2 rounded-md hover:bg-gray-200 transition">
-            Shop Now
-          </button>
-        </div>
-      </div>
+        {/* ANIMATED TEXT */}
+        <Fade in={isVisible} timeout={700}>
+          <Box sx={{ position: "relative", textAlign: "center", color: "white", px: 3 }}>
+            <Typography variant="h3" fontWeight="bold">
+              Welcome to Simple Shop
+            </Typography>
+            <Typography variant="h5" sx={{ mt: 2 }}>
+              Discover the latest trends in fashion & accessories.
+            </Typography>
+          </Box>
+        </Fade>
+      </Box>
 
       {/* PRODUCT SECTION */}
-      <div className="container mx-auto py-16 px-4">
-        <h2 className="text-3xl font-bold text-center mb-8">Our Collection</h2>
+      <Container sx={{ py: 8 }}>
+        <Typography variant="h4" fontWeight="bold" align="center" gutterBottom>
+          Our Collection
+        </Typography>
 
+        {/* Handle Empty Data */}
         {products.length === 0 ? (
-          <div className="max-w-md mx-auto bg-white shadow-md rounded-lg p-6 text-center">
-            <h3 className="text-xl font-semibold">No Products Available</h3>
-            <p className="text-gray-500">Check back later for new arrivals.</p>
-          </div>
+          <Typography variant="body1" align="center" color="textSecondary">
+            No products available
+          </Typography>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <Grid container spacing={3}>
             {products.map((product) => (
-              <ProductCard key={product.id} product={product} />
+              <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
+                <ProductCard product={product} />
+              </Grid>
             ))}
-          </div>
+          </Grid>
         )}
-      </div>
-    </div>
+      </Container>
+    </>
   );
 }

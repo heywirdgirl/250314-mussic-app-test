@@ -1,5 +1,7 @@
 import { useRouter } from "next/router";
 import Head from "next/head";
+import { Container, Grid, Typography, Button, CardMedia, CircularProgress, Box } from "@mui/material";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 // Fetch all product IDs from Firebase for SSG
 export async function getStaticPaths() {
@@ -17,9 +19,9 @@ export async function getStaticPaths() {
       params: { id: product.id.toString() },
     }));
 
-    return { paths, fallback: true }; // Enable fallback for new products
+    return { paths, fallback: true };
   } catch (error) {
-    return { paths: [], fallback: true }; // In case of an error, enable fallback
+    return { paths: [], fallback: true };
   }
 }
 
@@ -36,9 +38,7 @@ export async function getStaticProps({ params }) {
 
     if (!product) return { notFound: true };
 
-    return {
-      props: { product },
-    };
+    return { props: { product } };
   } catch (error) {
     return { notFound: true };
   }
@@ -49,9 +49,9 @@ export default function ProductPage({ product }) {
 
   if (router.isFallback) {
     return (
-      <div className="flex justify-center items-center min-h-[60vh]">
-        <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
-      </div>
+      <Box display="flex" justifyContent="center" alignItems="center" minHeight="60vh">
+        <CircularProgress />
+      </Box>
     );
   }
 
@@ -62,30 +62,49 @@ export default function ProductPage({ product }) {
         <meta name="description" content={product.description} />
       </Head>
 
-      <div className="container mx-auto py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          
-          {/* Product Image with Tailwind Animation */}
-          <img
-            src={product.image}
-            alt={product.name}
-            className="w-full h-[400px] object-cover rounded-lg shadow-md opacity-0 scale-95 animate-fade-in"
-          />
+      <Container sx={{ py: 6 }}>
+        <Grid container spacing={4} alignItems="center">
+          {/* Product Image */}
+          <Grid item xs={12} md={6}>
+            <CardMedia
+              component="img"
+              image={product.image}
+              alt={product.name}
+              sx={{
+                width: "100%",
+                height: 400,
+                objectFit: "cover",
+                borderRadius: 2,
+                boxShadow: 3,
+              }}
+            />
+          </Grid>
 
           {/* Product Details */}
-          <div>
-            <h1 className="text-3xl font-bold">{product.name}</h1>
-            <p className="text-xl text-blue-600 font-semibold mt-2">
+          <Grid item xs={12} md={6}>
+            <Typography variant="h4" fontWeight="bold">
+              {product.name}
+            </Typography>
+            <Typography variant="h5" color="primary" sx={{ mt: 1 }}>
               ${product.price.toFixed(2)}
-            </p>
-            <p className="text-gray-600 mt-4">{product.description}</p>
-            
-            <button className="mt-6 w-full md:w-auto bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition">
+            </Typography>
+            <Typography variant="body1" color="text.secondary" sx={{ mt: 2 }}>
+              {product.description}
+            </Typography>
+
+            {/* Buy Now Button */}
+            <Button
+              variant="contained"
+              color="success"
+              size="large"
+              sx={{ mt: 4 }}
+              startIcon={<ShoppingCartIcon />}
+            >
               Buy Now
-            </button>
-          </div>
-        </div>
-      </div>
+            </Button>
+          </Grid>
+        </Grid>
+      </Container>
     </>
   );
 }
