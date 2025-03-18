@@ -29,12 +29,12 @@ export default function Header() {
         {/* Dropdown Menu for Mobile */}
         <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleMenuClose}>
           <MenuItem onClick={handleMenuClose}>
-            <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center' }}>
+            <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', color: 'inherit' }}>
               <FacebookIcon sx={{ mr: 1 }} /> Facebook
             </Link>
           </MenuItem>
           <MenuItem onClick={handleMenuClose}>
-            <Link href="https://shopee.com" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center' }}>
+            <Link href="https://shopee.com" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', color: 'inherit' }}>
               <StorefrontIcon sx={{ mr: 1 }} /> Shopee
             </Link>
           </MenuItem>
