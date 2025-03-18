@@ -3,29 +3,24 @@ import { Container, Grid, Typography, Box, Fade } from "@mui/material";
 import ProductCard from "../components/ProductCard";
 
 export async function getStaticProps() {
-  try {
-    // Fetch product data from Firebase Realtime Database
-    const response = await fetch(
-      "https://dd-oled-default-rtdb.asia-southeast1.firebasedatabase.app/.json"
-    );
+  // Fetch product data from Firebase Realtime Database
+  const response = await fetch(
+    "https://dd-oled-default-rtdb.asia-southeast1.firebasedatabase.app/.json"
+  );
 
-    if (!response.ok) {
-      throw new Error("Failed to fetch data");
-    }
-
-    const data = await response.json();
-
-    // Convert Firebase object data into an array
-    const products = data ? Object.values(data) : [];
-
-    return {
-      props: { products },
-      // ISR: Re-fetch product data every 60 seconds
-    };
-  } catch (error) {
-    console.error("Error fetching products:", error);
-    return { props: { products: [] } }; // Return empty array on failure
+  if (!response.ok) {
+    throw new Error("Failed to fetch data");
   }
+
+  const data = await response.json();
+
+  // Convert Firebase object data into an array
+  const products = data ? Object.values(data) : [];
+
+  return {
+    props: { products },
+    // ISR: Re-fetch product data every 60 seconds
+  };
 }
 
 export default function Home({ products }) {
@@ -82,9 +77,9 @@ export default function Home({ products }) {
             No products available
           </Typography>
         ) : (
-          <Grid container spacing={3} >
+          <Grid container spacing={3} justifyContent="center">
             {products.map((product) => (
-              <Grid item xs={12} sm={6} md={4} lg={3} key={product.id} sx={{mx:'auto'}}>
+              <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
                 <ProductCard product={product} />
               </Grid>
             ))}
