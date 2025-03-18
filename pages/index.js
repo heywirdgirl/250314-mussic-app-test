@@ -82,7 +82,7 @@ export default function Home({ products }) {
             No products available
           </Typography>
         ) : (
-          <Grid container spacing={3} sx={{px:auto}}>
+          <Grid container spacing={3} sx={{ px:'auto' }}>
             {products.map((product) => (
               <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
                 <ProductCard product={product} />
