@@ -1,19 +1,16 @@
+// pages/_app.js
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import Container from "@mui/material/Container";
-import theme from "../theme"; // Import your MUI theme
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import theme from "../theme";
+import Layout from "../components/Layout";
 
 function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline /> {/* Normalize default styles */}
-      <Header />
-      <Container maxWidth="lg" sx={{ minHeight: "80vh", py: 3 }}>
+      <CssBaseline />
+      <Layout>
         <Component {...pageProps} />
-      </Container>
-      <Footer />
+      </Layout>
     </ThemeProvider>
   );
 }
