@@ -29,19 +29,19 @@ export default function Header() {
         {/* Dropdown Menu for Mobile */}
         <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleMenuClose}>
           <MenuItem onClick={handleMenuClose}>
-            <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+            <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center' }}>
               <FacebookIcon sx={{ mr: 1 }} /> Facebook
             </Link>
           </MenuItem>
           <MenuItem onClick={handleMenuClose}>
-            <Link href="https://shopee.com" target="_blank" rel="noopener noreferrer">
+            <Link href="https://shopee.com" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center' }}>
               <StorefrontIcon sx={{ mr: 1 }} /> Shopee
             </Link>
           </MenuItem>
-          <MenuItem>
+          <MenuItem onClick={handleMenuClose} style={{ display: 'flex', alignItems: 'center' }}>
             <LocationOnIcon sx={{ mr: 1 }} /> 123 Shop St.
           </MenuItem>
-          <MenuItem>
+          <MenuItem onClick={handleMenuClose} style={{ display: 'flex', alignItems: 'center' }}>
             <PhoneIcon sx={{ mr: 1 }} /> 012-345-6789
           </MenuItem>
         </Menu>
@@ -54,15 +54,15 @@ export default function Header() {
         </Typography>
 
         {/* Desktop Menu */}
-        <Box sx={{ display: { xs: "none", lg: "flex" }, gap: 3 }}>
-          <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", color: "inherit" }}>
-            <FacebookIcon /> Facebook
+        <Box sx={{ display: { xs: "none", lg: "flex" }, gap: 3, alignItems: 'center' }}>
+          <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", color: "inherit", display: 'flex', alignItems: 'center' }}>
+            <FacebookIcon sx={{mr:0.5}}/> Facebook
           </Link>
-          <Link href="https://shopee.com" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", color: "inherit" }}>
-            <StorefrontIcon /> Shopee
+          <Link href="https://shopee.com" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", color: "inherit", display: 'flex', alignItems: 'center' }}>
+            <StorefrontIcon sx={{mr:0.5}}/> Shopee
           </Link>
-          <Typography><LocationOnIcon /> 123 Shop St.</Typography>
-          <Typography><PhoneIcon /> 012-345-6789</Typography>
+          <Typography style={{display:'flex', alignItems:'center'}}><LocationOnIcon sx={{mr:0.5}}/> 123 Shop St.</Typography>
+          <Typography style={{display:'flex', alignItems:'center'}}><PhoneIcon sx={{mr:0.5}}/> 012-345-6789</Typography>
         </Box>
       </Toolbar>
     </AppBar>
