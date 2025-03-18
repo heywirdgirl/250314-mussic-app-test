@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }) {
     <ThemeProvider theme={theme}>
       <CssBaseline /> {/* Normalize default styles */}
       <Header />
-      <Container maxWidth="lg" sx={{ minHeight: "80vh", py: 3 }}>
+      <Container maxWidth="lg" sx={{ minHeight: "80vh", py: 3 ,px:}}>
         <Component {...pageProps} />
       </Container>
       <Footer />
