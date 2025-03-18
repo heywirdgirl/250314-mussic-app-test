@@ -1,14 +1,20 @@
-
-import Header from '../components/Header'; // Adjust the path as necessary
-import Footer from '../components/Footer'; // Adjust the path as necessary
+import { ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import Container from "@mui/material/Container";
+import theme from "../theme"; // Import your MUI theme
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <div className="relative">
+    <ThemeProvider theme={theme}>
+      <CssBaseline /> {/* Normalize default styles */}
       <Header />
-      <Component {...pageProps} />
+      <Container maxWidth="lg" sx={{ minHeight: "80vh", py: 3 }}>
+        <Component {...pageProps} />
+      </Container>
       <Footer />
-    </div>
+    </ThemeProvider>
   );
 }
 
