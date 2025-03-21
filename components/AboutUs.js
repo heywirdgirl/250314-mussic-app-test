@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Typography, Grid, Card, CardMedia, CardContent } from "@mui/material";
+import { Box , Container, Typography, Grid, Card, CardMedia, CardContent } from "@mui/material";
 import BusinessIcon from "@mui/icons-material/Business";
 import FactoryIcon from "@mui/icons-material/Factory";
 import PublicIcon from "@mui/icons-material/Public";
