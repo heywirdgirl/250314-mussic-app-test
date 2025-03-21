@@ -14,14 +14,18 @@ GIỚI THIỆU VỀ CHÚNG TÔI
 </Typography>
 
 {/* Hình ảnh trụ sở chính */}  
-  <Card sx={{ mb: 5 }}>  
-    <CardMedia  
-      component="img"  
-      height="300"  
-      image="images/companyImage.jpg" // Đường dẫn ảnh từ file đã tải lên  
-      alt="Trụ sở công ty"  
-    />  
-  </Card>  
+  <Card sx={{ mb: 5, width: "100%" }}>
+  <CardMedia
+    component="img"
+    image="/images/companyImage.jpg" // Ensure the path is correct
+    alt="Trụ sở công ty"
+    sx={{
+      width: "100%", // Make it fully responsive
+      height: { xs: 200, sm: 300, md: 400 }, // Adjust height for different screens
+      objectFit: "cover", // Keep the aspect ratio correct
+    }}
+  />
+</Card>
 
   {/* Nội dung */}  
   <Typography variant="body1" paragraph>  
@@ -35,63 +39,41 @@ GIỚI THIỆU VỀ CHÚNG TÔI
   </Typography>  
 
   {/* Biểu tượng & Thông tin thêm */}  
-  <Grid container spacing={4} sx={{ mt: 3 }}>  
-    <Grid item xs={12} sm={6} md={3}>  
-      <Card sx={{ textAlign: "center", py: 3 }}>  
-        <BusinessIcon sx={{ fontSize: 50, color: "primary.main" }} />  
-        <CardContent>  
-          <Typography variant="h6" fontWeight="bold">  
-            Thành lập năm 2008  
-          </Typography>  
-          <Typography variant="body2">  
-            Hơn 15 năm kinh nghiệm trong ngành sản xuất linh kiện điện thoại.  
-          </Typography>  
-        </CardContent>  
-      </Card>  
-    </Grid>  
-
-    <Grid item xs={12} sm={6} md={3}>  
-      <Card sx={{ textAlign: "center", py: 3 }}>  
-        <FactoryIcon sx={{ fontSize: 50, color: "secondary.main" }} />  
-        <CardContent>  
-          <Typography variant="h6" fontWeight="bold">  
-            Nhà máy hiện đại  
-          </Typography>  
-          <Typography variant="body2">  
-            Sử dụng công nghệ tiên tiến và quy trình sản xuất đạt chuẩn quốc tế.  
-          </Typography>  
-        </CardContent>  
-      </Card>  
-    </Grid>  
-
-    <Grid item xs={12} sm={6} md={3}>  
-      <Card sx={{ textAlign: "center", py: 3 }}>  
-        <PublicIcon sx={{ fontSize: 50, color: "success.main" }} />  
-        <CardContent>  
-          <Typography variant="h6" fontWeight="bold">  
-            Xuất khẩu toàn cầu  
-          </Typography>  
-          <Typography variant="body2">  
-            Phục vụ khách hàng tại Mỹ, Châu Âu, Nga, Dubai và nhiều nước khác.  
-          </Typography>  
-        </CardContent>  
-      </Card>  
-    </Grid>  
-
-    <Grid item xs={12} sm={6} md={3}>  
-      <Card sx={{ textAlign: "center", py: 3 }}>  
-        <SupportAgentIcon sx={{ fontSize: 50, color: "error.main" }} />  
-        <CardContent>  
-          <Typography variant="h6" fontWeight="bold">  
-            Hỗ trợ 24/7  
-          </Typography>  
-          <Typography variant="body2">  
-            Đội ngũ hỗ trợ khách hàng chuyên nghiệp, luôn sẵn sàng phục vụ.  
-          </Typography>  
-        </CardContent>  
-      </Card>  
-    </Grid>  
-  </Grid>  
+<Grid 
+  container 
+  spacing={3} 
+  sx={{ mt: 3, justifyContent: "center" }} // Center items on small screens
+>
+  {[
+    { icon: <BusinessIcon />, title: "Thành lập năm 2008", desc: "Hơn 15 năm kinh nghiệm trong ngành sản xuất linh kiện điện thoại." },
+    { icon: <FactoryIcon />, title: "Nhà máy hiện đại", desc: "Sử dụng công nghệ tiên tiến và quy trình sản xuất đạt chuẩn quốc tế." },
+    { icon: <PublicIcon />, title: "Xuất khẩu toàn cầu", desc: "Phục vụ khách hàng tại Mỹ, Châu Âu, Nga, Dubai và nhiều nước khác." },
+    { icon: <SupportAgentIcon />, title: "Hỗ trợ 24/7", desc: "Đội ngũ hỗ trợ khách hàng chuyên nghiệp, luôn sẵn sàng phục vụ." },
+  ].map((item, index) => (
+    <Grid item xs={12} sm={6} md={3} key={index}>
+      <Card
+        sx={{
+          textAlign: "center",
+          py: 3,
+          height: "100%", // Make all cards equal height
+          transition: "transform 0.3s ease, box-shadow 0.3s ease",
+          "&:hover": {
+            transform: "scale(1.05)", // Slight zoom effect on hover
+            boxShadow: 6, // Adds shadow effect
+          },
+        }}
+      >
+        <Box sx={{ fontSize: 50, color: "primary.main" }}>{item.icon}</Box>
+        <CardContent>
+          <Typography variant="h6" fontWeight="bold">
+            {item.title}
+          </Typography>
+          <Typography variant="body2">{item.desc}</Typography>
+        </CardContent>
+      </Card>
+    </Grid>
+  ))}
+</Grid>
 </Container>
 
 );
