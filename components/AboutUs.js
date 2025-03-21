@@ -39,45 +39,71 @@ GIỚI THIỆU VỀ CHÚNG TÔI
   </Typography>  
 
   {/* Biểu tượng & Thông tin thêm */}  
-<Grid 
-  container 
-  spacing={3} 
-  sx={{ mt: 3, justifyContent: "center" }} // Center items on small screens
->
-  {[
-    { icon: <BusinessIcon />, title: "Thành lập năm 2008", desc: "Hơn 15 năm kinh nghiệm trong ngành sản xuất linh kiện điện thoại." },
-    { icon: <FactoryIcon />, title: "Nhà máy hiện đại", desc: "Sử dụng công nghệ tiên tiến và quy trình sản xuất đạt chuẩn quốc tế." },
-    { icon: <PublicIcon />, title: "Xuất khẩu toàn cầu", desc: "Phục vụ khách hàng tại Mỹ, Châu Âu, Nga, Dubai và nhiều nước khác." },
-    { icon: <SupportAgentIcon />, title: "Hỗ trợ 24/7", desc: "Đội ngũ hỗ trợ khách hàng chuyên nghiệp, luôn sẵn sàng phục vụ." },
-  ].map((item, index) => (
-    <Grid item xs={12} sm={6} md={3} key={index}>
-      <Card
-        sx={{
-          textAlign: "center",
-          py: 3,
-          height: "100%", // Make all cards equal height
-          transition: "transform 0.3s ease, box-shadow 0.3s ease",
-          "&:hover": {
-            transform: "scale(1.05)", // Slight zoom effect on hover
-            boxShadow: 6, // Adds shadow effect
-          },
-        }}
-      >
-        <Box sx={{ fontSize: 50, color: "primary.main" }}>{item.icon}</Box>
-        <CardContent>
-          <Typography variant="h6" fontWeight="bold">
-            {item.title}
-          </Typography>
-          <Typography variant="body2">{item.desc}</Typography>
-        </CardContent>
-      </Card>
+    <Grid
+      container
+      spacing={3}
+      justifyContent="center"
+      sx={{
+        mt: 3,
+        px: { xs: 2, sm: 4, md: 8 }, // Add padding for better layout
+      }}
+    >
+      {[
+        {
+          icon: <BusinessIcon fontSize="large" color="primary" />,
+          title: "Thành lập năm 2008",
+          desc: "Hơn 15 năm kinh nghiệm trong ngành sản xuất linh kiện điện thoại.",
+        },
+        {
+          icon: <FactoryIcon fontSize="large" color="secondary" />,
+          title: "Nhà máy hiện đại",
+          desc: "Sử dụng công nghệ tiên tiến và quy trình sản xuất đạt chuẩn quốc tế.",
+        },
+        {
+          icon: <PublicIcon fontSize="large" color="success" />,
+          title: "Xuất khẩu toàn cầu",
+          desc: "Phục vụ khách hàng tại Mỹ, Châu Âu, Nga, Dubai và nhiều nước khác.",
+        },
+        {
+          icon: <SupportAgentIcon fontSize="large" color="error" />,
+          title: "Hỗ trợ 24/7",
+          desc: "Đội ngũ hỗ trợ khách hàng chuyên nghiệp, luôn sẵn sàng phục vụ.",
+        },
+      ].map((item, index) => (
+        <Grid item xs={12} sm={6} md={4} key={index}>
+          <Card
+            sx={{
+              textAlign: "center",
+              py: 3,
+              px: 2,
+              borderRadius: 2,
+              boxShadow: 3,
+              transition: "transform 0.3s ease-in-out",
+              "&:hover": {
+                transform: "scale(1.05)",
+                boxShadow: 6,
+              },
+            }}
+          >
+            <Box sx={{ display: "flex", justifyContent: "center", mb: 1 }}>
+              {item.icon}
+            </Box>
+            <CardContent>
+              <Typography variant="h6" fontWeight="bold">
+                {item.title}
+              </Typography>
+              <Typography variant="body2">{item.desc}</Typography>
+            </CardContent>
+          </Card>
+        </Grid>
+      ))}
     </Grid>
-  ))}
-</Grid>
 </Container>
 
 );
 };
 
 export default AboutUs;
+
+
 
