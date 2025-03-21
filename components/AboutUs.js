@@ -4,7 +4,7 @@ import BusinessIcon from "@mui/icons-material/Business";
 import FactoryIcon from "@mui/icons-material/Factory";
 import PublicIcon from "@mui/icons-material/Public";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
-import companyImage from "../public/images";
+
 
 const AboutUs = () => {
   return (
@@ -19,7 +19,7 @@ const AboutUs = () => {
         <CardMedia
           component="img"
           height="300"
-          image={companyImage} // Đường dẫn ảnh từ file đã tải lên
+          image={./images/companyImage.jpg} // Đường dẫn ảnh từ file đã tải lên
           alt="Trụ sở công ty"
         />
       </Card>
