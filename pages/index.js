@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Container, Grid, Typography, Box, Fade } from "@mui/material";
-import ProductCard from "../components/ProductCard";
+import ProductCard from "../components/ProductCard"
+import AboutUs from "../components/AboutUs";
 
 export async function getStaticProps() {
   // Fetch product data from Firebase Realtime Database
@@ -86,6 +87,7 @@ export default function Home({ products }) {
           </Grid>
         )}
       </Container>
+      <AboutUs />
     </>
   );
 }
