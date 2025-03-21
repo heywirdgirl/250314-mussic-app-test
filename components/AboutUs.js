@@ -19,7 +19,7 @@ const AboutUs = () => {
         <CardMedia
           component="img"
           height="300"
-          image={./images/companyImage.jpg} // Đường dẫn ảnh từ file đã tải lên
+          image="images/companyImage.jpg" // Đường dẫn ảnh từ file đã tải lên
           alt="Trụ sở công ty"
         />
       </Card>
