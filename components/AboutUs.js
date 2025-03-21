@@ -45,6 +45,8 @@ GIỚI THIỆU VỀ CHÚNG TÔI
       justifyContent="center"
       sx={{
         mt: 3,
+        maxWidth: "1000px", // Prevents excessive stretching
+        margin: "0 auto", // Centers the grid
         px: { xs: 2, sm: 4, md: 8 }, // Add padding for better layout
       }}
     >
