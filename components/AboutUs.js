@@ -1,28 +1,33 @@
 import React from "react";
-import { Container, Typography, Grid, Card, CardMedia, CardContent } from "@mui/material";
+import { Container, Typography, Grid, Card, CardMedia, CardContent, Box } from "@mui/material";
 import BusinessIcon from "@mui/icons-material/Business";
 import FactoryIcon from "@mui/icons-material/Factory";
 import PublicIcon from "@mui/icons-material/Public";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 
-
 const AboutUs = () => {
   return (
-    <Container maxWidth="lg" sx={{ py: 5 }}>
+    <Container maxWidth="lg" sx={{ py: { xs: 3, md: 5 } }}>
       {/* Tiêu đề */}
       <Typography variant="h4" align="center" fontWeight="bold" gutterBottom>
         GIỚI THIỆU VỀ CHÚNG TÔI
       </Typography>
 
       {/* Hình ảnh trụ sở chính */}
-      <Card sx={{ mb: 5 }}>
-        <CardMedia
-          component="img"
-          height="300"
-          image="images/companyImage.jpg" // Đường dẫn ảnh từ file đã tải lên
-          alt="Trụ sở công ty"
-        />
-      </Card>
+      <Box sx={{ display: "flex", justifyContent: "center", mb: 5 }}>
+        <Card sx={{ width: "100%", maxWidth: "1000px" }}>
+          <CardMedia
+            component="img"
+            image="/images/companyImage.jpg" // Đảm bảo đường dẫn đúng
+            alt="Trụ sở công ty"
+            sx={{
+              width: "100%",
+              height: { xs: 200, sm: 300, md: 400 },
+              objectFit: "cover",
+            }}
+          />
+        </Card>
+      </Box>
 
       {/* Nội dung */}
       <Typography variant="body1" paragraph>
@@ -36,62 +41,36 @@ const AboutUs = () => {
       </Typography>
 
       {/* Biểu tượng & Thông tin thêm */}
-      <Grid container spacing={4} sx={{ mt: 3 }}>
-        <Grid item xs={12} sm={6} md={3}>
-          <Card sx={{ textAlign: "center", py: 3 }}>
-            <BusinessIcon sx={{ fontSize: 50, color: "primary.main" }} />
-            <CardContent>
-              <Typography variant="h6" fontWeight="bold">
-                Thành lập năm 2008
-              </Typography>
-              <Typography variant="body2">
-                Hơn 15 năm kinh nghiệm trong ngành sản xuất linh kiện điện thoại.
-              </Typography>
-            </CardContent>
-          </Card>
-        </Grid>
-
-        <Grid item xs={12} sm={6} md={3}>
-          <Card sx={{ textAlign: "center", py: 3 }}>
-            <FactoryIcon sx={{ fontSize: 50, color: "secondary.main" }} />
-            <CardContent>
-              <Typography variant="h6" fontWeight="bold">
-                Nhà máy hiện đại
-              </Typography>
-              <Typography variant="body2">
-                Sử dụng công nghệ tiên tiến và quy trình sản xuất đạt chuẩn quốc tế.
-              </Typography>
-            </CardContent>
-          </Card>
-        </Grid>
-
-        <Grid item xs={12} sm={6} md={3}>
-          <Card sx={{ textAlign: "center", py: 3 }}>
-            <PublicIcon sx={{ fontSize: 50, color: "success.main" }} />
-            <CardContent>
-              <Typography variant="h6" fontWeight="bold">
-                Xuất khẩu toàn cầu
-              </Typography>
-              <Typography variant="body2">
-                Phục vụ khách hàng tại Mỹ, Châu Âu, Nga, Dubai và nhiều nước khác.
-              </Typography>
-            </CardContent>
-          </Card>
-        </Grid>
-
-        <Grid item xs={12} sm={6} md={3}>
-          <Card sx={{ textAlign: "center", py: 3 }}>
-            <SupportAgentIcon sx={{ fontSize: 50, color: "error.main" }} />
-            <CardContent>
-              <Typography variant="h6" fontWeight="bold">
-                Hỗ trợ 24/7
-              </Typography>
-              <Typography variant="body2">
-                Đội ngũ hỗ trợ khách hàng chuyên nghiệp, luôn sẵn sàng phục vụ.
-              </Typography>
-            </CardContent>
-          </Card>
-        </Grid>
+      <Grid container spacing={3} sx={{ mt: 3 }}>
+        {[
+          { icon: <BusinessIcon />, title: "Thành lập năm 2008", desc: "Hơn 15 năm kinh nghiệm trong ngành sản xuất linh kiện điện thoại." },
+          { icon: <FactoryIcon />, title: "Nhà máy hiện đại", desc: "Sử dụng công nghệ tiên tiến và quy trình sản xuất đạt chuẩn quốc tế." },
+          { icon: <PublicIcon />, title: "Xuất khẩu toàn cầu", desc: "Phục vụ khách hàng tại Mỹ, Châu Âu, Nga, Dubai và nhiều nước khác." },
+          { icon: <SupportAgentIcon />, title: "Hỗ trợ 24/7", desc: "Đội ngũ hỗ trợ khách hàng chuyên nghiệp, luôn sẵn sàng phục vụ." },
+        ].map((item, index) => (
+          <Grid item xs={12} sm={6} md={3} key={index}>
+            <Card
+              sx={{
+                textAlign: "center",
+                py: 3,
+                height: "100%",
+                transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                "&:hover": {
+                  transform: "scale(1.05)", // Phóng to nhẹ khi hover
+                  boxShadow: 6, // Tăng bóng đổ
+                },
+              }}
+            >
+              <Box sx={{ fontSize: 50, color: "primary.main" }}>{item.icon}</Box>
+              <CardContent>
+                <Typography variant="h6" fontWeight="bold">
+                  {item.title}
+                </Typography>
+                <Typography variant="body2">{item.desc}</Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        ))}
       </Grid>
     </Container>
   );
