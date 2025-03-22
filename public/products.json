@@ -1,142 +1,146 @@
 [
   {
     "id": 1,
-    "name": "Classic Baseball Hat",
+    "name": "OLED iPhone 10",
+    "description": "Màn hình OLED cho iPhone 10, tần số quét 60Hz, công nghệ COP.",
+    "price": 99.99,
     "image": "/images/hat.jpg",
-    "price": 19.99,
-    "description": "A stylish and comfortable classic baseball hat, perfect for any occasion."
+    "specs": {
+      "size": "5.8 inch",
+      "resolution": "2436 x 1125 pixels",
+      "refresh_rate": "60Hz",
+      "brightness": "800 nits",
+      "technology": "COP, Direct IC"
+    },
+    "in_stock": true,
+    "category": "OLED",
+    "brand": "DD",
+    "warranty": "12 months"
   },
   {
     "id": 2,
-    "name": "Vintage Snapback Cap",
+    "name": "OLED iPhone 11 Pro",
+    "description": "Màn hình OLED chất lượng cao, độ sáng 800 nits, hỗ trợ HDR.",
+    "price": 109.99,
     "image": "/images/hat.jpg",
-    "price": 24.99,
-    "description": "Retro-style snapback cap with adjustable fit and durable material."
+    "specs": {
+      "size": "5.8 inch",
+      "resolution": "2436 x 1125 pixels",
+      "refresh_rate": "60Hz",
+      "brightness": "800 nits",
+      "technology": "HDR, Direct IC"
+    },
+    "in_stock": true,
+    "category": "OLED",
+    "brand": "DD",
+    "warranty": "12 months"
   },
   {
     "id": 3,
-    "name": "Outdoor Sun Hat",
+    "name": "OLED iPhone 12 Pro Max",
+    "description": "Tần số quét 120Hz, công nghệ OLED cao cấp, màu sắc sống động.",
+    "price": 129.99,
     "image": "/images/hat.jpg",
-    "price": 29.99,
-    "description": "Wide-brim sun hat to keep you cool and protected during outdoor adventures."
+    "specs": {
+      "size": "6.7 inch",
+      "resolution": "2778 x 1284 pixels",
+      "refresh_rate": "120Hz",
+      "brightness": "1000 nits",
+      "technology": "COP, HDR10"
+    },
+    "in_stock": false,
+    "category": "OLED",
+    "brand": "DD",
+    "warranty": "12 months"
   },
   {
     "id": 4,
-    "name": "Winter Beanie Hat",
+    "name": "OLED iPhone 13 Plus",
+    "description": "Màn hình OLED 6.1 inch, tần số quét 120Hz, công nghệ COP.",
+    "price": 119.99,
     "image": "/images/hat.jpg",
-    "price": 14.99,
-    "description": "Soft and warm knitted beanie hat, perfect for winter seasons."
+    "specs": {
+      "size": "6.1 inch",
+      "resolution": "2532 x 1170 pixels",
+      "refresh_rate": "120Hz",
+      "brightness": "1000 nits",
+      "technology": "Direct IC, COP"
+    },
+    "in_stock": true,
+    "category": "OLED",
+    "brand": "DD",
+    "warranty": "12 months"
   },
   {
     "id": 5,
-    "name": "Cotton Bucket Hat",
+    "name": "OLED iPhone 14",
+    "description": "Màn hình OLED thế hệ mới, công nghệ Dynamic Island, 120Hz.",
+    "price": 139.99,
     "image": "/images/hat.jpg",
-    "price": 22.99,
-    "description": "Lightweight and breathable bucket hat, great for casual outings."
+    "specs": {
+      "size": "6.1 inch",
+      "resolution": "2532 x 1170 pixels",
+      "refresh_rate": "120Hz",
+      "brightness": "1200 nits",
+      "technology": "Dynamic Island, HDR"
+    },
+    "in_stock": true,
+    "category": "OLED",
+    "brand": "DD",
+    "warranty": "12 months"
   },
   {
     "id": 6,
-    "name": "Premium Fedora Hat",
+    "name": "OLED iPhone 15 Pro",
+    "description": "Màn hình OLED cao cấp, 120Hz, hỗ trợ HDR và Dolby Vision.",
+    "price": 149.99,
     "image": "/images/hat.jpg",
-    "price": 34.99,
-    "description": "Classic fedora hat made with premium materials for a sophisticated look."
+    "specs": {
+      "size": "6.1 inch",
+      "resolution": "2556 x 1179 pixels",
+      "refresh_rate": "120Hz",
+      "brightness": "1300 nits",
+      "technology": "Dolby Vision, HDR"
+    },
+    "in_stock": false,
+    "category": "OLED",
+    "brand": "DD",
+    "warranty": "12 months"
   },
   {
     "id": 7,
-    "name": "Camo Hunting Hat",
+    "name": "OLED iPhone 16 Pro Max",
+    "description": "Công nghệ OLED tiên tiến, độ sáng 1600 nits, Dynamic Island.",
+    "price": 169.99,
     "image": "/images/hat.jpg",
-    "price": 18.99,
-    "description": "Durable camouflage hunting hat for outdoor and tactical use."
+    "specs": {
+      "size": "6.7 inch",
+      "resolution": "2796 x 1290 pixels",
+      "refresh_rate": "120Hz",
+      "brightness": "1600 nits",
+      "technology": "Dynamic Island, HDR10+"
+    },
+    "in_stock": true,
+    "category": "OLED",
+    "brand": "DD",
+    "warranty": "12 months"
   },
   {
     "id": 8,
-    "name": "Performance Sports Cap",
+    "name": "OLED iPhone 16 Plus",
+    "description": "Màn hình OLED rộng, tần số quét 120Hz, chất lượng cao.",
+    "price": 159.99,
     "image": "/images/hat.jpg",
-    "price": 21.99,
-    "description": "Breathable and sweat-wicking sports cap for athletic activities."
-  },
-  {
-    "id": 9,
-    "name": "Straw Beach Hat",
-    "image": "/images/hat.jpg",
-    "price": 27.99,
-    "description": "Stylish and lightweight straw hat, perfect for summer beach days."
-  },
-  {
-    "id": 10,
-    "name": "Adjustable Trucker Cap",
-    "image": "/images/hat.jpg",
-    "price": 16.99,
-    "description": "Classic mesh trucker cap with adjustable snap closure for a perfect fit."
-  },
-  {
-    "id": 11,
-    "name": "Stylish Cowboy Hat",
-    "image": "/images/hat.jpg",
-    "price": 39.99,
-    "description": "Authentic cowboy hat made with durable materials for a western look."
-  },
-  {
-    "id": 12,
-    "name": "Casual Dad Hat",
-    "image": "/images/hat.jpg",
-    "price": 15.99,
-    "description": "Simple and stylish dad hat for an everyday casual look."
-  },
-  {
-    "id": 13,
-    "name": "Waterproof Hiking Hat",
-    "image": "/images/hat.jpg",
-    "price": 26.99,
-    "description": "Lightweight, waterproof hiking hat designed for outdoor adventures."
-  },
-  {
-    "id": 14,
-    "name": "Classic Golf Cap",
-    "image": "/images/hat.jpg",
-    "price": 23.99,
-    "description": "Perfect golf cap with UV protection and sweat-absorbing material."
-  },
-  {
-    "id": 15,
-    "name": "Urban Hip-Hop Cap",
-    "image": "/images/hat.jpg",
-    "price": 19.99,
-    "description": "Trendy hip-hop style cap that complements streetwear outfits."
-  },
-  {
-    "id": 16,
-    "name": "Soft Fleece Beanie",
-    "image": "/images/hat.jpg",
-    "price": 12.99,
-    "description": "Warm fleece beanie for maximum comfort in cold weather."
-  },
-  {
-    "id": 17,
-    "name": "Lightweight Cycling Cap",
-    "image": "/images/hat.jpg",
-    "price": 17.99,
-    "description": "Designed for cyclists, lightweight and breathable for maximum comfort."
-  },
-  {
-    "id": 18,
-    "name": "Reversible Fisherman Hat",
-    "image": "/images/hat.jpg",
-    "price": 20.99,
-    "description": "Two-in-one reversible fisherman hat with dual-color design."
-  },
-  {
-    "id": 19,
-    "name": "Stylish Military Cap",
-    "image": "/images/hat.jpg",
-    "price": 22.99,
-    "description": "Military-style cap with sturdy build and classic design."
-  },
-  {
-    "id": 20,
-    "name": "Kids' Fun Cap",
-    "image": "/images/hat.jpg",
-    "price": 14.99,
-    "description": "Colorful and comfortable cap designed for kids of all ages."
+    "specs": {
+      "size": "6.5 inch",
+      "resolution": "2688 x 1242 pixels",
+      "refresh_rate": "120Hz",
+      "brightness": "1400 nits",
+      "technology": "HDR, COP"
+    },
+    "in_stock": true,
+    "category": "OLED",
+    "brand": "DD",
+    "warranty": "12 months"
   }
 ]

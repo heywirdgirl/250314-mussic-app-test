@@ -35,7 +35,7 @@ export default function ProductCard({ product }) {
             : product.description}
         </Typography>
         <Typography variant="h6" color="primary" sx={{ mt: 2 }}>
-          ${product.price.toFixed(2)}
+          {product.price.toFixed(2)} VND
         </Typography>
       </CardContent>
 

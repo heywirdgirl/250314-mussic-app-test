@@ -7,7 +7,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 export async function getStaticPaths() {
   try {
     const response = await fetch(
-      "https://dd-oled-default-rtdb.asia-southeast1.firebasedatabase.app/.json"
+      "https://dd-oled-default-rtdb.asia-southeast1.firebasedatabase.app/products.json"
     );
     if (!response.ok) {
       throw new Error("Failed to fetch data");
@@ -29,7 +29,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   try {
     const response = await fetch(
-      `https://dd-oled-default-rtdb.asia-southeast1.firebasedatabase.app/${params.id}.json`
+      `https://dd-oled-default-rtdb.asia-southeast1.firebasedatabase.app/products/${params.id}.json`
     );
     if (!response.ok) {
       throw new Error("Failed to fetch product data");
@@ -58,7 +58,7 @@ export default function ProductPage({ product }) {
   return (
     <>
       <Head>
-        <title>{product.name} - Simple Shop</title>
+        <title>{product.name} - OLED Screens</title>
         <meta name="description" content={product.description} />
       </Head>
 
@@ -86,11 +86,21 @@ export default function ProductPage({ product }) {
               {product.name}
             </Typography>
             <Typography variant="h5" color="primary" sx={{ mt: 1 }}>
-              ${product.price.toFixed(2)}
+              {product.price.toFixed(2)} VND
             </Typography>
             <Typography variant="body1" color="text.secondary" sx={{ mt: 2 }}>
               {product.description}
             </Typography>
+
+            {/* Specifications */}
+            <Box sx={{ mt: 3 }}>
+              <Typography variant="body2"><b>Size:</b> {product.specs.size}</Typography>
+              <Typography variant="body2"><b>Resolution:</b> {product.specs.resolution}</Typography>
+              <Typography variant="body2"><b>Refresh Rate:</b> {product.specs.refresh_rate}</Typography>
+              <Typography variant="body2"><b>Brightness:</b> {product.specs.brightness}</Typography>
+              <Typography variant="body2"><b>Technology:</b> {product.specs.technology}</Typography>
+              <Typography variant="body2"><b>Warranty:</b> {product.warranty}</Typography>
+            </Box>
 
             {/* Buy Now Button */}
             <Button
@@ -99,8 +109,9 @@ export default function ProductPage({ product }) {
               size="large"
               sx={{ mt: 4 }}
               startIcon={<ShoppingCartIcon />}
+              disabled={!product.in_stock} // Disable button if product is out of stock
             >
-              Buy Now
+              {product.in_stock ? "Buy Now" : "Out of Stock"}
             </Button>
           </Grid>
         </Grid>
