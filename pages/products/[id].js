@@ -131,7 +131,7 @@ export default function ProductPage({ product }) {
               startIcon={<ShoppingCartIcon />}
               disabled={!product.in_stock} // Disable button if product is out of stock
             >
-              {product.in_stock ? "Buy Now" : "Out of Stock"}
+              {product.in_stock ? "Mua Ngay" : "Hết Hàng"}
             </Button>
           </Grid>
         </Grid>

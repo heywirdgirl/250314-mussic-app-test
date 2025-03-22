@@ -34,7 +34,7 @@ export default function Home({ products }) {
   return (
     <>
       {/* HERO SECTION */}
-      <Box
+/*      <Box
         sx={{
           position: "relative",
           minHeight: "60vh",
@@ -64,7 +64,40 @@ export default function Home({ products }) {
             </Typography>
           </Box>
         </Fade>
-      </Box>
+      </Box>*/
+      
+      {/* PHẦN HERO */}
+<Box
+  sx={{
+    position: "relative",
+    minHeight: "60vh",
+    background: "url('/images/oled-display.jpg') center/cover no-repeat",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  }}
+>
+  {/* LỚP PHỦ TỐI */}
+  <Box
+    sx={{
+      position: "absolute",
+      inset: 0,
+      backgroundColor: "rgba(0, 0, 0, 0.6)",
+    }}
+  />
+
+  {/* VĂN BẢN HIỆU ỨNG */}
+  <Fade in={isVisible} timeout={700}>
+    <Box sx={{ position: "relative", textAlign: "center", color: "white", px: 3 }}>
+      <Typography variant="h3" fontWeight="bold">
+        Chào mừng đến với [Tên Công Ty] OLED
+      </Typography>
+      <Typography variant="h5" sx={{ mt: 2 }}>
+        Công nghệ màn hình OLED tiên tiến – Hình ảnh sắc nét, màu sắc chân thực.
+      </Typography>
+    </Box>
+  </Fade>
+</Box>
 
       {/* PRODUCT SECTION */}
       <Container sx={{ py: 8 }}>
