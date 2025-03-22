@@ -33,29 +33,42 @@ export default function Home({ products }) {
 
   return (
     <>
- {/* PHẦN HERO */}
+      
+      
+{/* PHẦN HERO */}
 <Box
   sx={{
     position: "relative",
-    minHeight: "60vh",
-    background: "url('/images/oled-display.jpg') center/cover no-repeat",
+    minHeight: "70vh",
+    backgroundImage: "url('/images/hat.jpg')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
   }}
 >
-  {/* LỚP PHỦ TỐI */}
+  {/* LỚP PHỦ TỐI VỚI HIỆU ỨNG GRADIENT */}
   <Box
     sx={{
       position: "absolute",
       inset: 0,
-      backgroundColor: "rgba(0, 0, 0, 0.6)",
+      background: "linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4))",
     }}
   />
 
   {/* VĂN BẢN HIỆU ỨNG */}
   <Fade in={isVisible} timeout={700}>
-    <Box sx={{ position: "relative", textAlign: "center", color: "white", px: 3 }}>
+    <Box
+      sx={{
+        position: "relative",
+        textAlign: "center",
+        color: "white",
+        px: 3,
+        mt: "-10vh", // Đưa văn bản lên cao hơn một chút
+        textShadow: "2px 2px 8px rgba(0, 0, 0, 0.6)", // Tạo hiệu ứng nổi bật hơn
+      }}
+    >
       <Typography variant="h3" fontWeight="bold">
         Chào mừng đến với [Tên Công Ty] OLED
       </Typography>
