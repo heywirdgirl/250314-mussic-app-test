@@ -26,7 +26,7 @@ export async function getStaticPaths() {
 }
 
 // Fetch individual product details from Firebase
-export async function getStaticProps({ params }) {
+/*export async function getStaticProps({ params }) {
   try {
     const response = await fetch(
       `https://dd-oled-default-rtdb.asia-southeast1.firebasedatabase.app/products/${params.id}.json`
@@ -36,6 +36,26 @@ export async function getStaticProps({ params }) {
     }
     const product = await response.json();
 
+    if (!product) return { notFound: true };
+
+    return { props: { product } };
+  } catch (error) {
+    return { notFound: true };
+  }
+}*/
+
+export async function getStaticProps({ params }) {
+  try {
+    const adjustedId = parseInt(params.id) - 1; // Subtract 1 to match Firebase ID
+    const response = await fetch(
+      `https://dd-oled-default-rtdb.asia-southeast1.firebasedatabase.app/${adjustedId}.json`
+    );
+    
+    if (!response.ok) {
+      throw new Error("Failed to fetch product data");
+    }
+
+    const product = await response.json();
     if (!product) return { notFound: true };
 
     return { props: { product } };
