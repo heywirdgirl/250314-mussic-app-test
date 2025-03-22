@@ -43,7 +43,7 @@ export default function ProductCard({ product }) {
       <CardActions sx={{ justifyContent: "flex-end", p: 2 }}>
         <Link href={`/products/${product.id}`} passHref>
           <Button variant="contained" color="primary" fullWidth>
-            View Details
+            Chi Tiết
           </Button>
         </Link>
       </CardActions>

@@ -33,40 +33,7 @@ export default function Home({ products }) {
 
   return (
     <>
-      {/* HERO SECTION */}
-/*      <Box
-        sx={{
-          position: "relative",
-          minHeight: "60vh",
-          background: "url('/images/hat.jpg') center/cover no-repeat",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        {/* DARK OVERLAY */}
-        <Box
-          sx={{
-            position: "absolute",
-            inset: 0,
-            backgroundColor: "rgba(0, 0, 0, 0.6)",
-          }}
-        />
-
-        {/* ANIMATED TEXT */}
-        <Fade in={isVisible} timeout={700}>
-          <Box sx={{ position: "relative", textAlign: "center", color: "white", px: 3 }}>
-            <Typography variant="h3" fontWeight="bold">
-              Welcome to Simple Shop
-            </Typography>
-            <Typography variant="h5" sx={{ mt: 2 }}>
-              Discover the latest trends in fashion & accessories.
-            </Typography>
-          </Box>
-        </Fade>
-      </Box>*/
-      
-      {/* PHẦN HERO */}
+ {/* PHẦN HERO */}
 <Box
   sx={{
     position: "relative",
